@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 import { ClockProps } from "./clock";
+import { ReactComponent as PlayIcon } from "../../public/icons/play.svg";
+import { ReactComponent as PauseIcon } from "../../public/icons/pause.svg";
+import { ReactComponent as ResetIcon } from "../../public/icons/reset.svg";
+import {
+  ClockContainer,
+  ClockTimer,
+  ClockButtonsContainer,
+  ClockButton,
+} from "./styles";
 
 export const Clock = ({
   workTime,
@@ -34,34 +43,42 @@ export const Clock = ({
       setSecondsAmount(workTime);
       setIsPlaying(false);
     }
-  }, [isPlaying, secondsAmount]);
+  }, [isPlaying, secondsAmount, restTime, workTime, setState, state]);
 
   return (
-    <div>
-      <div>
+    <ClockContainer>
+      <ClockTimer>
         <span>{minutes.toString().padStart(2, "0")}</span>
         <span>:</span>
         <span>{seconds.toString().padStart(2, "0")}</span>
-      </div>
+      </ClockTimer>
 
-      <div>
+      <ClockButtonsContainer>
+        <ClockButton onClick={() => setIsPlaying(true)}>
+          <span>
+            <PlayIcon />
+          </span>
+        </ClockButton>
+        <ClockButton onClick={() => setIsPlaying(false)}>
+          <span>
+            <PauseIcon />
+          </span>
+        </ClockButton>
+
         <div>
-          <button onClick={() => setIsPlaying(true)}>Play</button>
-          <button onClick={() => setIsPlaying(false)}>Pause</button>
+          <ClockButton
+            onClick={(e) => {
+              setSecondsAmount(defaultSecondsValue);
+              e.stopPropagation();
+              setIsPlaying(false);
+            }}
+          >
+            <span>
+              <ResetIcon />
+            </span>
+          </ClockButton>
         </div>
-      </div>
-
-      <div>
-        <button
-          onClick={(e) => {
-            setSecondsAmount(defaultSecondsValue);
-            e.stopPropagation();
-            setIsPlaying(false);
-          }}
-        >
-          Reset
-        </button>
-      </div>
-    </div>
+      </ClockButtonsContainer>
+    </ClockContainer>
   );
 };

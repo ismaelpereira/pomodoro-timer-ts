@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { ThemeProvider } from "styled-components";
 import { Clock } from "./Components/Clock";
 import { Footer } from "./Components/Footer";
 import { Header } from "./Components/Header";
+import { GlobalStyle } from "./styles/global";
+import { mainTheme } from "./styles/theme";
 
 const POMODORO_WORK_TIME_IN_SECONDS = 5;
 const POMODORO_REST_TIME_IN_SECONDS = 6;
@@ -12,18 +15,24 @@ function App() {
   const [seconds, setSeconds] = useState(() =>
     state === 0 ? workTime : restTime
   );
+  const [darkMode, setDarkMode] = useState(false);
+
+  console.log(darkMode);
 
   return (
     <div>
-      <Header />
-      {/* <Clock
-        workTime={workTime}
-        restTime={restTime}
-        state={state}
-        setState={setState}
-        setSeconds={setSeconds}
-      /> */}
-      {/* <Footer /> */}
+      <ThemeProvider theme={mainTheme}>
+        <GlobalStyle />
+        <Header setDarkMode={setDarkMode} />
+        <Clock
+          workTime={workTime}
+          restTime={restTime}
+          state={state}
+          setState={setState}
+          setSeconds={setSeconds}
+        />
+        <Footer />
+      </ThemeProvider>
     </div>
   );
 }

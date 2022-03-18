@@ -1,11 +1,34 @@
+import { ReactComponent as GithubIcon } from "../../public/icons/github.svg";
+import { ReactComponent as LinkedinIcon } from "../../public/icons/linkedin.svg";
+import { FooterContainer, SocialIconsContainer } from "./styles";
+
 export const Footer = () => {
   return (
-    <div>
-      <p>Powered by Ismael Pereira</p>
+    <FooterContainer>
       <div>
-        <a href="#">Github</a>
-        <a href="#">Linkedin</a>
+        <p>Powered by Ismael Pereira</p>
       </div>
-    </div>
+
+      <SocialIconsContainer>
+        <a
+          href="https://github.com/ismaelpereira"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>
+            <GithubIcon />
+          </span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ismaelfgpereira/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>
+            <LinkedinIcon />
+          </span>
+        </a>
+      </SocialIconsContainer>
+    </FooterContainer>
   );
 };
