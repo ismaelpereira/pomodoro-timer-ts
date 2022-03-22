@@ -6,7 +6,16 @@ export const SettingsButton = styled.button`
   font-size: 16px;
   border: none;
   border-radius: 0.4em;
+  background: none;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.hover};
+  }
+
+  &:active:enabled {
+    background-color: ${({ theme }) => theme.colors.active};
+  }
 `;
 
 export const HeaderContainer = styled.div`

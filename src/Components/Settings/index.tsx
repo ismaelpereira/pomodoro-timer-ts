@@ -79,7 +79,7 @@ export const Settings = ({
                   checked={checked}
                   uncheckedIcon={false}
                   checkedIcon={false}
-                  onColor="#080"
+                  onColor="#FF5252"
                 />
               </InputContainer>
 

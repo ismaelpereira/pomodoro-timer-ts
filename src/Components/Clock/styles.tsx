@@ -6,7 +6,7 @@ export const ClockContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 1em;
-  border-radius: 0.4em;
+  border-radius: ${({ theme }) => theme.border.radius};
 `;
 
 export const ClockTimer = styled.div`
@@ -26,4 +26,13 @@ export const ClockButton = styled.button`
   height: 75px;
   text-align: center;
   cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.secondary};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.hover};
+  }
+
+  &:enabled:active {
+    background-color: ${({ theme }) => theme.colors.active};
+  }
 `;
