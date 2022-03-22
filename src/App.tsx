@@ -6,9 +6,10 @@ import { Header } from "./Components/Header";
 import { GlobalStyle } from "./styles/global";
 import { mainTheme, darkTheme } from "./styles/theme";
 
-const POMODORO_WORK_TIME_IN_SECONDS = 5;
-const POMODORO_REST_TIME_IN_SECONDS = 6;
 function App() {
+  const POMODORO_WORK_TIME_IN_SECONDS = 20 * 60;
+  const POMODORO_REST_TIME_IN_SECONDS = 5 * 60;
+
   const [workTime, setWorkTime] = useState(POMODORO_WORK_TIME_IN_SECONDS);
   const [restTime, setRestTime] = useState(POMODORO_REST_TIME_IN_SECONDS);
   const [state, setState] = useState(0); //0 === work && 1 === rest
@@ -17,8 +18,6 @@ function App() {
   );
   const [darkMode, setDarkMode] = useState(false);
   const theme = darkMode ? darkTheme : mainTheme;
-
-  console.log(darkMode);
 
   return (
     <div>

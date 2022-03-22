@@ -10,13 +10,9 @@ import {
   ClockButton,
 } from "./styles";
 
-export const Clock = ({
-  workTime,
-  restTime,
-  state,
-  setState,
-  setSeconds,
-}: ClockProps) => {
+const ONE_SECOND_IN_MILLISECONDS = 1000;
+
+export const Clock = ({ workTime, restTime, state, setState }: ClockProps) => {
   const totalSeconds = state === 0 ? workTime : restTime;
 
   const [secondsAmount, setSecondsAmount] = useState(totalSeconds);
@@ -31,7 +27,7 @@ export const Clock = ({
     if (secondsAmount > 0 && isPlaying) {
       setTimeout(() => {
         setSecondsAmount((state) => state - 1);
-      }, 1000);
+      }, ONE_SECOND_IN_MILLISECONDS);
     }
     if (secondsAmount === 0 && state === 0) {
       setState(1);

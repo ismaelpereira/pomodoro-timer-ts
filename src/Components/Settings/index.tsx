@@ -51,6 +51,8 @@ export const Settings = ({
     return () => document.removeEventListener("keydown", keyPress);
   }, [keyPress]);
 
+  const handleSettings = () => {};
+
   return (
     <>
       {showSettings ? (
@@ -61,7 +63,7 @@ export const Settings = ({
               <span onClick={() => setShowSettings(false)}>X</span>
             </ModalHeader>
 
-            <Form action="#">
+            <Form action="submit">
               <InputContainer className="workTime">
                 <label>Tempo de trabalho:</label>
                 <Input type="number" />
@@ -84,7 +86,7 @@ export const Settings = ({
               </InputContainer>
 
               <ButtonContainer>
-                <Button>Aplicar</Button>
+                <Button onSubmit={handleSettings}>Aplicar</Button>
               </ButtonContainer>
             </Form>
           </ModalWrapper>
