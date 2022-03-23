@@ -31,9 +31,9 @@ export const Header = ({
       <HeaderContainer>
         <h2>Pomodoro</h2>
         <div>
-          <SettingsButton>
+          <SettingsButton onClick={openSettings}>
             <span>
-              <SettingsIcon onClick={openSettings} />
+              <SettingsIcon />
             </span>
           </SettingsButton>
         </div>
