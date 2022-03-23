@@ -8,6 +8,7 @@ import {
   ClockTimer,
   ClockButtonsContainer,
   ClockButton,
+  DescriptionContent,
 } from "./styles";
 
 const ONE_SECOND_IN_MILLISECONDS = 1000;
@@ -31,11 +32,13 @@ export const Clock = ({ workTime, restTime, state, setState }: ClockProps) => {
     }
     if (secondsAmount === 0 && state === 0) {
       setState(1);
+      localStorage.setItem("state", "1");
       setSecondsAmount(restTime);
       setIsPlaying(false);
     }
     if (secondsAmount === 0 && state === 1) {
       setState(0);
+      localStorage.setItem("state", "0");
       setSecondsAmount(workTime);
       setIsPlaying(false);
     }
@@ -43,6 +46,10 @@ export const Clock = ({ workTime, restTime, state, setState }: ClockProps) => {
 
   return (
     <ClockContainer>
+      <DescriptionContent>
+        {state === 0 ? <h2>Trabalhando....</h2> : <h2>Descansando....</h2>}
+      </DescriptionContent>
+
       <ClockTimer>
         <span>{minutes.toString().padStart(2, "0")}</span>
         <span>:</span>

@@ -13,6 +13,10 @@ export const ClockTimer = styled.div`
   font-size: 200px;
 `;
 
+export const DescriptionContent = styled.div`
+  margin-top: 1em;
+`;
+
 export const ClockButtonsContainer = styled.div`
   border: none;
   display: flex;

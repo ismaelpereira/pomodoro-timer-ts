@@ -13,8 +13,8 @@ export const Background = styled.div`
 
 export const ModalWrapper = styled.div`
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
+  background: ${({ theme }) => theme.colors.main};
+  color: #fff;
   z-index: 10;
   border-radius: 0.4em;
 `;
@@ -59,4 +59,11 @@ export const Button = styled.button`
   width: 60px;
   border-radius: 0.4em;
   font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.secondary};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.hover};
+  }
 `;
